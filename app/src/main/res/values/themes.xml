@@ -1,0 +1,121 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.KiryuCashier" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.KiryuCashier.NoActionBar" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.KiryuCashier.NoActionBarFullScreen" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="AppCompatButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/bg_btn_primary</item>
+        <item name="android:fontFamily">@font/mmedium</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="AppCompatButton.signin">
+        <item name="android:text">@string/sign_in</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="AppCompatButton.register">
+        <item name="android:text">@string/register</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="AppCompatButton.logout">
+        <item name="android:text">@string/log_out</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@color/red_primary</item>
+    </style>
+    <style name="AppCompatButton.add">
+        <item name="android:text">@string/tambah_produk</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="AppCompatButton.update">
+        <item name="android:text">@string/update</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="AppCompatButton.continue">
+        <item name="android:text">@string/Continue</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="AppCompatButton.end">
+        <item name="android:text">@string/end</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="AppCompatButton.delete">
+        <item name="android:text">@string/hapus_produk</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@color/red_primary</item>
+    </style>
+    <style name="AppCompatButton.bayar">
+        <item name="android:text">@string/bayar</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/bg_input_combine</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:drawablePadding">12dp</item>
+        <item name="android:inputType">text</item>
+    </style>
+
+    <style name="EditText.Username">
+        <item name="android:drawableStart">@drawable/ic_baseline_person_24</item>
+        <item name="android:inputType">text</item>
+    </style>
+
+    <style name="EditText.Email">
+        <item name="android:drawableStart">@drawable/ic_baseline_email_24</item>
+        <item name="android:inputType">textEmailAddress</item>
+    </style>
+
+    <style name="EditText.Date">
+        <item name="android:drawableStart">@drawable/ic_baseline_date_range_24</item>
+        <item name="android:inputType">text</item>
+    </style>
+
+    <style name="EditText.Password">
+        <item name="android:drawableStart">@drawable/ic_baseline_lock_24</item>
+        <item name="android:inputType">textPassword</item>
+    </style>
+
+    <style name="Theme.KiryuCashier.NoActionBarFullScreen.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.KiryuCashier.NoActionBarFullScreen.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" >
+<!--        <item name="android:background">@drawable/bg_overlay_second</item>-->
+        <item name="android:fontFamily">@font/mregular</item>
+    </style>
+
+    <style name="Theme.KiryuCashier.NoActionBarFullScreen.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" >
+<!--        <item name="android:background">@drawable/bg_overlay_second</item>-->
+    </style>
+
+</resources>

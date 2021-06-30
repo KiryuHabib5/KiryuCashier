@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp"
+    app:cardMaxElevation="10dp"
+    android:layout_marginBottom="5dp"
+    android:id="@+id/card_item"
+    android:layout_width="match_parent"
+    android:background="@drawable/bg_layout_white"
+    android:padding="10dp"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:id="@+id/tv_nama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/mmedium"
+            android:text="Kode\t\t\t\t\t:"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_datetime" />
+
+        <TextView
+            android:id="@+id/tv_valueCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/mmedium"
+            android:text="901754134"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/tv_nama"
+            app:layout_constraintTop_toBottomOf="@+id/tv_datetime" />
+
+
+        <TextView
+            android:id="@+id/tv_biaya"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/mmedium"
+            android:text="biaya\t\t\t\t\t:"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nama" />
+
+        <TextView
+            android:id="@+id/tv_valueBiaya"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mmedium"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="20dp"
+            android:text="50000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/tv_biaya"
+            app:layout_constraintTop_toBottomOf="@+id/tv_valueCode" />
+
+        <TextView
+            android:id="@+id/tv_bayar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/mmedium"
+            android:text="bayar\t\t\t\t:"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_biaya" />
+        <TextView
+            android:id="@+id/tv_valueBayar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mmedium"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="20dp"
+            android:text="50000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/tv_bayar"
+            app:layout_constraintTop_toBottomOf="@+id/tv_valueBiaya" />
+
+        <TextView
+            android:id="@+id/tv_kembali"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/mmedium"
+            android:text="kembali\t:"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_bayar" />
+        <TextView
+            android:id="@+id/tv_valueKembali"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mmedium"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="20dp"
+            android:text="50000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/tv_kembali"
+            app:layout_constraintTop_toBottomOf="@+id/tv_valueBayar" />
+
+
+        <TextView
+            android:id="@+id/tv_datetime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_rectangle"
+            android:fontFamily="@font/mmedium"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:text="Senin 17-april-2000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="28dp"
+            android:src="@drawable/ic_transaction_icon_155900"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_valueCode" />
+
+        <ImageButton
+            android:id="@+id/btn_del"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:src="@drawable/ic_baseline_delete_50"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_datetime"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.cardview.widget.CardView>

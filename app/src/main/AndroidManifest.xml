@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.magangonline.kiryucashier">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.KiryuCashier.NoActionBarFullScreen">
+        <activity android:name=".feature.Home.Dashboard.ui.history.Detail.ProduklistActivity"></activity>
+        <activity android:name=".feature.Home.Dashboard.ui.transaksi.konfirmasi.KonfirmasiActivity" />
+        <activity android:name=".feature.Home.Dashboard.ui.transaksi.search.SearchActivity" />
+        <activity android:name=".feature.addproduk.AddProdukActivity" />
+        <activity android:name=".feature.detailproduk.DetailProdukActivity" />
+        <activity android:name=".feature.Home.Profile.ProfileActivity" />
+        <activity
+            android:name=".feature.Home.Dashboard.HomeActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/Theme.KiryuCashier.NoActionBarFullScreen.NoActionBar" />
+        <activity android:name=".feature.register.RegisterActivity" />
+        <activity
+            android:name=".feature.login.LoginActivity"
+            android:theme="@style/Theme.KiryuCashier.NoActionBar" />
+        <activity android:name=".feature.start.StartActivity" />
+        <activity android:name=".feature.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".feature.Home.Dashboard.MainActivity" />
+    </application>
+
+</manifest>

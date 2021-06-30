@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "458217066177",
+    "project_id": "kiryucashier",
+    "storage_bucket": "kiryucashier.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:458217066177:android:22d35d4c8adea4ebfd4e40",
+        "android_client_info": {
+          "package_name": "com.magangonline.kiryucashier"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "458217066177-edif1i2k4a01q4tkel8iq221e23se1c1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.magangonline.kiryucashier",
+            "certificate_hash": "086d0c9fb2f465c48dc6ab7ba9a38f41021b88d4"
+          }
+        },
+        {
+          "client_id": "458217066177-p5p8k0n0lo8osqlofcufjhc84du7pfri.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZEgIpUhGcKw00ZGUIIm6xKJsJjtPgJiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "458217066177-p5p8k0n0lo8osqlofcufjhc84du7pfri.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

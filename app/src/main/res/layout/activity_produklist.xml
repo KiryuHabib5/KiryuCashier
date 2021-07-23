@@ -1,54 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingStart="24dp"
-    android:paddingLeft="24dp"
-    android:paddingTop="10dp"
-    android:paddingEnd="24dp"
-    android:paddingRight="24dp"
-    android:paddingBottom="30dp"
-    android:background="@drawable/bg_overlay_start_activity"
     tools:context=".feature.Home.Dashboard.ui.history.Detail.ProduklistActivity">
-
-    <LinearLayout
-        android:id="@+id/heading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_layout_white"
-        android:orientation="horizontal"
-        android:layout_marginTop="70dp"
-        android:padding="7dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/im_logo"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/logo2"
-            android:layout_marginEnd="12dp"
-            android:layout_marginRight="12dp" />
-        <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="24dp"
+        android:paddingLeft="24dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="24dp"
+        android:paddingRight="24dp"
+        android:paddingBottom="60dp"
+        android:background="@drawable/bg_overlay_start_activity">
+        <LinearLayout
+            android:id="@+id/heading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:fontFamily="@font/mlight"
-            android:text="@string/detail_produk"
-            android:textColor="@color/black"
-            android:textSize="24sp" />
-    </LinearLayout>
+            android:background="@drawable/bg_layout_white"
+            android:orientation="horizontal"
+            android:layout_marginTop="70dp"
+            android:padding="7dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_produk"
-        android:layout_width="match_parent"
-        android:layout_height="650dp"
-        android:orientation="vertical"
-        android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/heading" />
+            <ImageView
+                android:id="@+id/im_logo"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/logo2"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/mlight"
+                android:text="@string/detail_produk"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+        </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_produk"
+            android:layout_width="match_parent"
+            android:layout_height="650dp"
+            android:orientation="vertical"
+            android:layout_marginTop="30dp"
+            app:layout_constraintTop_toBottomOf="@+id/heading" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

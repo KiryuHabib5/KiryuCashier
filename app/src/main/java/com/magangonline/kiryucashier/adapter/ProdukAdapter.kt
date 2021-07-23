@@ -10,7 +10,7 @@ import com.magangonline.kiryucashier.model.Produk
 import kotlinx.android.synthetic.main.item_produk.view.*
 import java.util.*
 
-class ProdukAdapter(
+class ProdukAdapter (
         val item: ArrayList<Produk>?,
         val context: Context,
         val onClick: OnClickItem) :

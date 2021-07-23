@@ -10,3 +10,4 @@ data class Produk (
         var harga_produk: String = "",
         var qty_produk: String = "",
 ) : Parcelable
+

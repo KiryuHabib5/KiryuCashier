@@ -46,12 +46,12 @@ class ProdukListAdapter(
             view.tv_jumlah.text = produk.itemClick
             view.tv_harga.text = (produk.harga_produk.toInt() * view.tv_jumlah.text.toString().toInt()).toString()
             transaksiProduk.clear()
-            transaksiProduk.put(produk.kode_produk, view.tv_harga.text.toString().toInt())
+            transaksiProduk[produk.kode_produk] = view.tv_harga.text.toString().toInt()
             result.result(transaksiProduk, TransaksiProduk(
                     nama_produk = view.tv_nama.text.toString(),
                     harga_produk = view.tv_harga.text.toString(),
                     jumlah_pesanan = view.tv_jumlah.text.toString()
-            ), position,false)
+            ), position, view.tv_jumlah.text.toString().toInt(),false)
             view.card_item.setOnClickListener {
                 clickItem.onClickItem(produk)
             }
@@ -60,37 +60,37 @@ class ProdukListAdapter(
                 view.tv_jumlah.text = jumlah.toString()
                 view.tv_harga.text = (produk.harga_produk.toInt() * view.tv_jumlah.text.toString().toInt()).toString()
                 transaksiProduk.clear()
-                transaksiProduk.put(produk.kode_produk, view.tv_harga.text.toString().toInt())
+                transaksiProduk[produk.kode_produk] = view.tv_harga.text.toString().toInt()
                 result.result(transaksiProduk, TransaksiProduk(
                         nama_produk = view.tv_nama.text.toString(),
                         harga_produk = view.tv_harga.text.toString(),
                         jumlah_pesanan = view.tv_jumlah.text.toString()
-                ), position,false)
+                ), position, view.tv_jumlah.text.toString().toInt(),false)
             }
             view.ib_down.setOnClickListener {
                 var jumlah: Int = view.tv_jumlah.text.toString().toInt() - 1
-                if (jumlah < 0){
-                    jumlah = 0
+                if (jumlah < 1){
+                    jumlah = 1
                 }
                 view.tv_jumlah.text = jumlah.toString()
                 view.tv_harga.text = (produk.harga_produk.toInt() * view.tv_jumlah.text.toString().toInt()).toString()
                 transaksiProduk.clear()
-                transaksiProduk.put(produk.kode_produk, view.tv_harga.text.toString().toInt())
+                transaksiProduk[produk.kode_produk] = view.tv_harga.text.toString().toInt()
                 result.result(transaksiProduk, TransaksiProduk(
                         nama_produk = view.tv_nama.text.toString(),
                         harga_produk = view.tv_harga.text.toString(),
                         jumlah_pesanan = view.tv_jumlah.text.toString(),
-                ),position, false)
+                ),position, view.tv_jumlah.text.toString().toInt(), false)
             }
             view.btn_del.setOnClickListener {
                 view.tv_harga.text = (produk.harga_produk.toInt() * view.tv_jumlah.text.toString().toInt()).toString()
                 transaksiProduk.clear()
-                transaksiProduk.put(produk.kode_produk, view.tv_harga.text.toString().toInt())
+                transaksiProduk[produk.kode_produk] = view.tv_harga.text.toString().toInt()
                 result.result(transaksiProduk, TransaksiProduk(
                         nama_produk = view.tv_nama.text.toString(),
                         harga_produk = view.tv_harga.text.toString(),
                         jumlah_pesanan = view.tv_jumlah.text.toString(),
-                ),position, true)
+                ),position, view.tv_jumlah.text.toString().toInt(),true)
             }
 
         }
@@ -106,6 +106,7 @@ class ProdukListAdapter(
         fun result(transaksiProduk: MutableMap<String, Int>,
                    produk:TransaksiProduk,
                    position: Int,
+                   total:Int,
                    isDeleted: Boolean
         )
     }

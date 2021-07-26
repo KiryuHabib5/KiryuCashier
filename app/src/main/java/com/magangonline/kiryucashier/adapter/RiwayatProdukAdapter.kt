@@ -37,7 +37,7 @@ val onClick: OnClickItem) : RecyclerView.Adapter<RiwayatProdukAdapter.ViewHolder
         fun bind(produk: TransaksiProduk, clickItem: OnClickItem) {
             view.tv_nama.text = produk.nama_produk
             view.tv_harga.text = produk.harga_produk
-            view.tv_jumlah.text = produk.harga_produk
+            view.tv_jumlah.text = produk.jumlah_pesanan
             view.card_item.setOnClickListener {
                 clickItem.onClickItem(produk)
             }

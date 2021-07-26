@@ -33,12 +33,12 @@ class TransaksiFragment : Fragment(),TransaksiContract.View {
     private var produkAdapter: ProdukListAdapter? = null
     private var listProduk : ArrayList<NewProduk>? = ArrayList()
     private var produkTransaksi : MutableMap<String, Int> = mutableMapOf()
+    private var jumlah:Int = 1
 //    private var ttlHarga:String = ""
 //    private var code:String = ""
     private val kdProduk = mutableMapOf<String, String>()
     private var allProduk: ArrayList<NewProduk>? = ArrayList()
     private var produkResult:  MutableMap<String, TransaksiProduk> = mutableMapOf()
-    private var temp: String = ""
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -58,18 +58,14 @@ class TransaksiFragment : Fragment(),TransaksiContract.View {
             val fragment = SearchFragment()
             fragment.setOnOptionDialogListener(object : SearchFragment.OnOptionDialogListener {
                 override fun onOptionChoosen(text: String?) {
-//                    Toast.makeText(activity, text, Toast.LENGTH_SHORT).show()
-                    var i:Int = 1
-                    if (!(text in kdProduk.keys)){
-                        kdProduk.put(text!!, i.toString())
+                    if (text !in kdProduk.keys){
+                        kdProduk[text!!] = 1.toString()
+                        jumlah = kdProduk[text!!]!!.toInt()
                     }else{
-//                        i = kdProduk[text]!!.toInt() + 1
-                        if (!(temp.equals(""))){
-                            i = temp.toInt() + 1
-                        }
-                        kdProduk[text!!] = i.toString()
+                        jumlah = kdProduk[text!!]!!.toInt() + 1
+                        kdProduk[text!!] = jumlah.toString()
                     }
-                    presenter.getProd(text, i.toString())
+                    presenter.getProd(text, jumlah.toString())
                 }
             })
             fragment.dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
@@ -86,18 +82,14 @@ class TransaksiFragment : Fragment(),TransaksiContract.View {
             val fragment = SearchFragment()
             fragment.setOnOptionDialogListener(object : SearchFragment.OnOptionDialogListener {
                 override fun onOptionChoosen(text: String?) {
-//                    Toast.makeText(activity, text, Toast.LENGTH_SHORT).show()
-                    var i:Int = 1
-                    if (!(text in kdProduk.keys)){
-                        kdProduk.put(text!!, i.toString())
+                    if (text !in kdProduk.keys){
+                        kdProduk[text!!] = 1.toString()
+                        jumlah = kdProduk[text!!]!!.toInt()
                     }else{
-//                        i = kdProduk[text]!!.toInt() + 1
-                        if (!(temp.equals(""))){
-                            i = temp.toInt() + 1
-                        }
-                        kdProduk[text!!] = i.toString()
+                        jumlah = kdProduk[text!!]!!.toInt() + 1
+                        kdProduk[text!!] = jumlah.toString()
                     }
-                    presenter.getProd(text, i.toString())
+                    presenter.getProd(text, jumlah.toString())
                 }
             })
             fragment.dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
@@ -133,14 +125,20 @@ class TransaksiFragment : Fragment(),TransaksiContract.View {
 
         if (allProduk!!.isNotEmpty()){
             var tempKD:ArrayList<String>? = ArrayList()
+
             for (prod in allProduk!!){
                 tempKD!!.add(prod.kode_produk)
+                for (kdProd in kdProduk.keys){
+                    if (prod.kode_produk == kdProd){
+                        prod.itemClick = kdProduk[kdProd]!!
+                    }
+                }
             }
             if (produk.kode_produk in tempKD!!){
                 for (prod in allProduk!!){
-                    if (produk.kode_produk.equals(prod.kode_produk)){
+                    if (produk.kode_produk == prod.kode_produk){
                         var index = allProduk!!.indexOf(prod)
-                        allProduk!!.set(index, produk)
+                        allProduk!![index] = produk
                     }
                 }
             }else{
@@ -159,23 +157,34 @@ class TransaksiFragment : Fragment(),TransaksiContract.View {
             }
         }
         val onResult = object : ProdukListAdapter.OnResult {
-            override fun result(transaksiProduk: MutableMap<String, Int>, produkT: TransaksiProduk, position: Int, isDeleted: Boolean) {
+            override fun result(transaksiProduk: MutableMap<String, Int>, produkT: TransaksiProduk, position: Int, total: Int, isDeleted: Boolean) {
 //                Toast.makeText(requireContext(), harga, Toast.LENGTH_LONG).show
 
+                try {
+                    var kd = listProduk!![position].kode_produk
+                    kdProduk[kd] = total.toString()
+                    for (id in transaksiProduk.keys){
+                        produkTransaksi[id] = transaksiProduk[id]!!
+                        produkResult[id] = produkT
+                    }
 
 
-                for (id in transaksiProduk.keys){
-                    produkTransaksi[id] = transaksiProduk[id]!!
-                    produkResult[id] = produkT
-                }
 
-                if (isDeleted){
+                    if (isDeleted){
 //                    Toast.makeText(requireContext(), "Delete", Toast.LENGTH_LONG).show()
-                    listProduk!!.clear()
-                    listProduk!!.addAll(produk)
-                    listProduk!!.removeAt(position)
-                    produkAdapter!!.notifyItemRemoved(position)
+                        produkTransaksi.remove(kd)
+                        kdProduk!!.remove(kd)
+                        listProduk!!.clear()
+                        listProduk!!.addAll(produk)
+                        listProduk!!.removeAt(position)
+                        allProduk!!.removeAt(position)
+                        produkAdapter!!.notifyItemRemoved(position)
+                    }
+                }catch (e:Exception){
+
                 }
+
+
 
 
                 var temp:Int = 0
@@ -199,6 +208,7 @@ class TransaksiFragment : Fragment(),TransaksiContract.View {
             listProduk!!.size
             produkAdapter!!.notifyDataSetChanged()
         }
+
     }
 
     override fun onProcess(boolean: Boolean) {

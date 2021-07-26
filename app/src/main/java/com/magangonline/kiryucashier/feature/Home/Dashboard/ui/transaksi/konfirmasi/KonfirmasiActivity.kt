@@ -23,6 +23,7 @@ class KonfirmasiActivity : AppCompatActivity(), KonfirmasiContract.View {
 
     override lateinit var presenter: KonfirmasiContract.Presenter
 //    private var produkResult: ArrayList<TransaksiProduk> = ArrayList()
+    private var totalClicked = 0
     private var produkAdapter: ProdukKonfirmAdapter? = null
     private var listProduk : ArrayList<TransaksiProduk>? = ArrayList()
     private var loading: AlertDialog?=null
@@ -35,6 +36,7 @@ class KonfirmasiActivity : AppCompatActivity(), KonfirmasiContract.View {
         setContentView(R.layout.activity_konfirmasi)
         loading = showDialogLoading()
         btn_bayar.setOnClickListener {
+            loading?.show()
             if (et_nominalBayar.text.toString().equals("0")){
                 et_nominalBayar.setError("Anda Belum Input")
             }
@@ -42,22 +44,29 @@ class KonfirmasiActivity : AppCompatActivity(), KonfirmasiContract.View {
                 et_nominalBayar.setError("Buset kurang boss duitnya")
             }else{
                 tv_nominalKembali.text = (et_nominalBayar.text.toString().toInt() - tv_nominalBiaya.text.toString().toInt()).toString()
+                Toast.makeText(this, "Sukses", Toast.LENGTH_LONG).show()
+                totalClicked += 1
             }
+            loading?.dismiss()
         }
         tv_nominalBiaya.text = intent.getStringExtra("biaya")
         listProduk = intent.getParcelableArrayListExtra("listProduk")
         addAdapter(listProduk!!)
 
         btn_end.setOnClickListener {
+            if (totalClicked < 1){
+                Toast.makeText(this, "Tekan Tombol Bayar Terlebih Dahulu", Toast.LENGTH_LONG).show()
+            }else{
+                presenter.save(RiwayatTransaksi(
+                        kode_transaksi = getCode().toString(),
+                        tanggal_transaksi = getDatetime().toString(),
+                        list_produk = listProduk as java.util.ArrayList<TransaksiProduk>,
+                        total_biaya = tv_nominalBiaya.text.toString(),
+                        input_bayar = et_nominalBayar.text.toString(),
+                        total_kembali = tv_nominalKembali.text.toString()
+                ))
 
-            presenter.save(RiwayatTransaksi(
-                kode_transaksi = getCode().toString(),
-                tanggal_transaksi = getDatetime().toString(),
-                list_produk = listProduk as java.util.ArrayList<TransaksiProduk>,
-                total_biaya = tv_nominalBiaya.text.toString(),
-                input_bayar = et_nominalBayar.text.toString(),
-                total_kembali = tv_nominalKembali.text.toString()
-            ))
+            }
 
         }
 

@@ -1,12 +1,14 @@
 package com.magangonline.kiryucashier.feature.detailproduk
 
 import android.app.ProgressDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.magangonline.kiryucashier.R
+import com.magangonline.kiryucashier.feature.Home.Dashboard.HomeActivity
 import com.magangonline.kiryucashier.model.Produk
 import kotlinx.android.synthetic.main.activity_detail_produk.*
 
@@ -68,10 +70,22 @@ class DetailProdukActivity : AppCompatActivity(), DetailProdukContract.View {
 
     override fun onSuccess(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+        val goToHome = Intent(this, HomeActivity::class.java)
+        goToHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        goToHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        startActivity(goToHome)
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+        finish()
+
     }
 
     override fun onSuccessDelete(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+        val goToHome = Intent(this, HomeActivity::class.java)
+        goToHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        goToHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        startActivity(goToHome)
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         finish()
     }
 

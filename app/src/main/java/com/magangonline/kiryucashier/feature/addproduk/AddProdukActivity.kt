@@ -1,10 +1,12 @@
 package com.magangonline.kiryucashier.feature.addproduk
 
 import android.app.ProgressDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.magangonline.kiryucashier.R
+import com.magangonline.kiryucashier.feature.Home.Dashboard.HomeActivity
 import com.magangonline.kiryucashier.model.Produk
 import kotlinx.android.synthetic.main.activity_add_produk.*
 import kotlinx.android.synthetic.main.activity_add_produk.et_harga
@@ -72,5 +74,15 @@ class AddProdukActivity : AppCompatActivity(), AddProdukContract.View {
         }else{
             loading?.dismiss()
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val goToHome = Intent(this, HomeActivity::class.java)
+        goToHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        goToHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        startActivity(goToHome)
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+        finish()
     }
 }
